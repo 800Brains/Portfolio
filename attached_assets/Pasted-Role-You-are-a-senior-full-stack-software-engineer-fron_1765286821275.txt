@@ -1,0 +1,216 @@
+Role: You are a senior full-stack software engineer, front-end designer, UX engineer and product owner. Your job is to deliver a production-ready, highly interactive, accessible, responsive, and performance-optimized personal portfolio website for a software engineer. Build everything end-to-end: design (UI/UX), frontend, backend (APIs), hosting/CD, CI, analytics, and a small CMS for content updates. Provide code, tests, deployment config, documentation and a demo.
+
+⸻
+
+Project summary (one-line)
+
+Create a modern, tactile, interactive portfolio website for a software engineer that highlights skills, projects, case studies, CV, testimonials, and contact methods — fast, mobile-first, accessible, and delightful.
+
+⸻
+
+High-level requirements
+•	Tech stack (preferred):
+•	Frontend: React (Next.js 14 or latest stable) with Server-Side Rendering & Static Generation where appropriate.
+•	Styling: TailwindCSS (utility + design system) or styled components; animations with Framer Motion or GSAP for complex transitions.
+•	Backend: Next.js API routes or Node.js + Express (serverless friendly).
+•	CMS: Headless CMS (Sanity, Contentful, or a markdown + Git workflow) for projects, blog, and testimonials.
+•	Forms: Serverless function (Vercel/AWS Lambda) to send contact emails via SendGrid/Mailgun + honeypot + reCAPTCHA.
+•	Images: Next/Image optimization, AVIF/WebP generation, lazy loading.
+•	Deployment: Vercel, Netlify, or AWS Amplify.
+•	Tests: Jest + React Testing Library for component tests, Cypress for E2E.
+•	Linting/Formatting: ESLint + Prettier + TypeScript.
+•	Analytics: Plausible or Google Analytics (with cookie consent).
+•	Performance & QA targets:
+•	Lighthouse: Performance ≥ 90, Accessibility ≥ 90, Best Practices ≥ 90, SEO ≥ 90.
+•	Responsive across standard breakpoints: 320, 375, 414, 768, 1024, 1280, 1536.
+•	Cross-browser: Chrome, Firefox, Safari, Edge (last 2 versions).
+•	Accessibility: WCAG 2.1 AA compliance (keyboard navigable, ARIA roles, color contrast).
+•	Security: Rate limit contact API, sanitize inputs, use HTTPS, CSP headers.
+•	SEO & Social: Structured data (schema.org Person / Portfolio), meta open graph, Twitter card, sitemap.xml, robots.txt.
+•	Deliverables: Source repo, README with run/deploy instructions, automated CI (GitHub Actions), design spec (Figma frames or equivalent), production deployment URL, test reports.
+
+⸻
+
+UX / UI specifics (appearance & interactions)
+•	Visual style: Minimal, elegant, tactile. Prioritize whitespace and readable typography. Use a limited accent color palette (primary accent, secondary accent, neutral).
+•	Hero section:
+•	Large animated greeting that types the engineer’s role(s): e.g., Hi — I’m Alex, I build web apps.
+•	Subheadline: concise value proposition and CTA buttons: “View Work”, “Download CV”, “Contact”.
+•	Animated background (subtle parallax or particle system) that is optional via “Reduce motion” for accessibility.
+•	Navigation:
+•	Sticky nav with smooth-scrolling to anchors.
+•	Mobile: hamburger -> full-screen nav overlay with animated nav items.
+•	Show current section progress (thin progress bar or active link indicator).
+•	About / Story:
+•	Short bio, core proficiencies (icons + animated radial/skill bars).
+•	Interactive timeline of career/education with hover/click for details.
+•	Skills / Tech stack panel:
+•	Grid of tech cards, each card shows proficiency (0–100), years of experience, example links, and animated microinteractions on hover.
+•	Projects / Case studies:
+•	Filterable portfolio (by type: frontend, backend, full-stack, open source, freelance).
+•	Each project as a card with image, tech tags, short blurb; clicking opens a modal with:
+•	Problem → Approach → Solution
+•	Screenshots / live demo / repo link
+•	Metrics (e.g., performance improvements, conversion uplift)
+•	Code snippets (with syntax highlighting) and deployment details
+•	Animated transitions between cards and modal
+•	Featured project walkthrough:
+•	A short interactive demo embedded (iframe or live sandboxes) and an animated timeline of key milestones.
+•	Blog / Notes (optional):
+•	Lightweight markdown blog with tagging and index page.
+•	Testimonials / Social proof:
+•	Carousel with logos and quotes; animated reveal on scroll.
+•	Contact / Hire me:
+•	Contact form with name, email, subject, message, optional resume upload (mulipart upload with virus scanning flagged in docs).
+•	Also show email, phone (optional), LinkedIn, GitHub, Twitter, and a calendar link (Calendly) if provided.
+•	Add a “Download CV” button that returns a PDF.
+•	Footer:
+•	Compact links, copyright, small badge for tech stack, link to sitemap and privacy policy.
+
+⸻
+
+Interactivity & animations (explicit)
+•	Use Framer Motion for route transitions and component animations. Keep animations:
+•	Subtle, performant (use transforms, opacity; avoid layout thrashing)
+•	Respect prefers-reduced-motion — provide reduced/zero motion variant.
+•	Specific microinteractions:
+•	Hover tilt + elevation on project cards (3D transform).
+•	Animated filters with staggered reveal.
+•	Animated progress bars for skills using CSS transforms.
+•	Modal entrance: scale + fade + spring.
+•	Cursor effect: optional custom cursor on desktop (dot + hover state) with toggle off for accessibility.
+•	Performance note: all animations must run on GPU-backed properties (transform, opacity).
+
+⸻
+
+Content model (JSON example)
+
+Provide a content schema for the CMS and a sample JSON for one project:
+
+{
+"author": {
+"name": "Alex Doe",
+"role": "Full-Stack Engineer",
+"location": "Toronto, Canada",
+"bio": "I build performant, accessible web applications...",
+"contact": {
+"email": "alex@example.com",
+"github": "https://github.com/alex",
+"linkedin": "https://linkedin.com/in/alex"
+}
+},
+"projects": [
+{
+"id": "proj-1",
+"title": "Realtime Collaboration App",
+"slug": "realtime-collab",
+"summary": "A collaborative editor with Operational Transform.",
+"coverImage": "/images/projects/collab-cover.avif",
+"tech": ["React", "WebSocket", "Node.js", "Postgres"],
+"type": "full-stack",
+"liveUrl": "https://collab.example.com",
+"repoUrl": "https://github.com/alex/collab",
+"metrics": {"users": "10k", "latency_ms": 120},
+"caseStudy": "Problem → Approach → Solution → Lessons"
+}
+]
+}
+
+⸻
+
+API endpoints (minimal)
+•	GET /api/profile — returns profile JSON.
+•	GET /api/projects — returns list of projects.
+•	GET /api/projects/:slug — returns single project details.
+•	POST /api/contact — receives contact form; validated, rate limited, send mail.
+•	POST /api/upload-resume — authenticated or limited, stores resume in cloud storage.
+
+All endpoints must validate input and return proper status codes and error messages.
+
+⸻
+
+Accessibility checklist
+•	Keyboard navigable for all interactive elements.
+•	Skip-to-content link.
+•	Focus visible states and logical focus order.
+•	Semantic HTML: use <header>, <main>, <nav>, <section>, <article>, <footer>.
+•	Images with meaningful alt text; decorative images have empty alt.
+•	Color contrast ratio >= 4.5:1 for body text.
+•	Provide text alternatives for animations and motion toggle.
+
+⸻
+
+Testing & QA
+•	Unit tests for core components (coverage target >= 80% for critical modules).
+•	E2E tests: form submits, navigation flows, project modal open/close.
+•	Accessibility tests: axe-core automation in CI.
+•	Lighthouse report generation in CI for every PR.
+
+⸻
+
+Deliverables & repository structure
+•	Monorepo or single repo structured clearly:
+
+/src
+/components
+/pages
+/styles
+/lib
+/api
+/public
+/cms-migrations
+README.md
+LICENSE
+
+
+•	README.md with local dev, test, lint, build, deploy steps.
+•	Figma (or exported PNGs) design file and component library tokens.
+•	Deployment on Vercel (or chosen provider) with preview URLs for PRs.
+•	Exported sitemap.xml & robots.txt.
+•	CI config files (GitHub Actions).
+•	A CHANGELOG.md with release notes.
+⸻
+
+Acceptance criteria (must pass)
+1.	Production site deployed and accessible at provided URL.
+2.	All pages load and are responsive at breakpoints listed.
+3.	Contact form sends an email and returns success message.
+4.	At least three projects present with case study modals.
+5.	Lighthouse scores: P ≥ 90, A ≥ 90, BPs ≥ 90, SEO ≥ 90 (explain any gaps).
+6.	Accessibility audit via axe shows no critical violations.
+7.	Repo includes tests and passing CI.
+
+⸻
+
+Implementation constraints / preferences
+•	Use TypeScript everywhere.
+•	Favor static generation for portfolio pages then revalidate (ISR) for updates.
+•	Keep bundle size small; implement code-splitting / dynamic imports for heavy widgets.
+•	Use semantic, testable CSS class names (Tailwind utilities encouraged).
+•	Document any third-party services and associated costs (e.g., CMS, email provider).
+
+⸻
+
+Example prompts to pass to design & dev sub-agents
+•	Design agent: “Create a Figma design for a software engineer portfolio with a tactile hero, interactive project grid, modal case studies, and a contact section. Provide component tokens (typography, spacings, colors), 3 responsive page layouts (mobile/tablet/desktop) and 5 example UI states for animations.”
+•	Frontend agent: “Scaffold a Next.js + TypeScript site using Tailwind, implement hero, responsive nav, projects grid with filters, modal case study with animations, contact form routed to /api/contact, i18n support placeholder, tests, and deploy scripts. Include accessibility features and prefers-reduced-motion handling.”
+•	Backend agent: “Build minimal serverless API for contact + project content endpoints. Implement input validation, rate limiting, email delivery via SendGrid, and file uploads to a cloud bucket. Ensure CORS & security headers.”
+•	QA agent: “Run automated unit and E2E tests, run axe accessibility checks, and produce Lighthouse reports. Flag issues with remediation steps.”
+
+⸻
+
+Sample acceptance test (manual)
+1.	Load homepage on mobile (iPhone 12 viewport) — hero text legible, CTA visible, nav collapses to hamburger.
+2.	Click “View Work” — smooth scroll to projects; click a project — modal opens with images and code snippet; close modal returns keyboard focus to triggering card.
+3.	Fill contact form with test data — verify success message and email received.
+4.	Run npm run build and validate next build succeeds and bundle sizes are within tolerances.
+
+⸻
+
+Final notes for the AI agent
+•	Produce a Git repo with commits representing design → implementation → polish.
+•	Document every major choice (why Next.js? why this animation lib?).
+•	Aim for production quality: readable code, comments, tests, and deployable CI.
+•	If any part cannot be completed due to external service limits (e.g., paid CMS), provide clear stubs and instructions for switching to a free alternative.
+
+
