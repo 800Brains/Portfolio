@@ -58,7 +58,7 @@
 
 ### Hero Section
 - Full viewport height (min-h-screen) with centered content
-- Animated typing effect for role description: "Hi — I'm Alex, I build web apps."
+- Animated typing effect for role description: "Hi — I'm Somto, I build web apps."
 - Subheadline with concise value proposition
 - CTA button group: "View Work" (primary), "Download CV" (secondary), "Contact" (outline)
 - Buttons on hero background: Blurred background (backdrop-blur-lg, bg-white/10), no hover state changes
@@ -114,7 +114,7 @@
 - Submit button: Full-width on mobile, auto-width on desktop with loading state
 - Validation: Inline error messages below fields, red border on invalid
 - Success state: Replace form with confirmation message and checkmark icon
-- Contact info sidebar: Email, phone, social links (LinkedIn, GitHub, Twitter), Calendly embed
+- Contact info sidebar: Email, phone, social links (LinkedIn, GitHub), Calendly embed
 - "Download CV" button: Secondary style with download icon
 
 ### Footer

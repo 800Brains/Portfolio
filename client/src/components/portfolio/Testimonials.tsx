@@ -9,27 +9,35 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 const testimonials = [
   {
     id: 1,
-    quote: "Alex is one of the most talented engineers I've worked with. His ability to translate complex requirements into elegant solutions is exceptional. He delivered our project ahead of schedule with impeccable quality.",
-    author: 'Sarah Chen',
-    role: 'CTO',
-    company: 'TechStartup Inc.',
-    initials: 'SC',
+    quote: "Somtochukwu's technical expertise in network configuration and maintenance has been instrumental to our operations. His proactive approach reduced our network downtime significantly, and his troubleshooting skills are exceptional. He's a reliable professional who goes above and beyond.",
+    author: 'Operations Manager',
+    role: 'Senior Manager',
+    company: 'Somick Rhema',
+    initials: 'OM',
   },
   {
     id: 2,
-    quote: "Working with Alex was a game-changer for our team. His expertise in React and Node.js helped us rebuild our platform from the ground up. The new system is 3x faster and our users love it.",
-    author: 'Michael Rodriguez',
-    role: 'Product Manager',
-    company: 'Digital Solutions',
-    initials: 'MR',
+    quote: "During his internship, Somtochukwu demonstrated remarkable aptitude in Java development and software engineering principles. His mobile applications were well-architected with secure coding practices. He's a quick learner who adapts well to team environments.",
+    author: 'Technical Lead',
+    role: 'Software Development Lead',
+    company: 'NIIT Enugu',
+    initials: 'TL',
   },
   {
     id: 3,
-    quote: "Alex's attention to detail and commitment to best practices is remarkable. He not only delivered excellent code but also mentored our junior developers. A true team player and technical leader.",
-    author: 'Emily Watson',
-    role: 'Engineering Lead',
-    company: 'Enterprise Corp',
-    initials: 'EW',
+    quote: "Somtochukwu's dedication to both technology and community service is inspiring. His work organizing healthcare outreach programs while maintaining high technical standards shows his character and leadership abilities. He's someone you can count on.",
+    author: 'Program Coordinator',
+    role: 'Community Outreach Director',
+    company: 'Somick Rhema Foundation',
+    initials: 'PC',
+  },
+  {
+    id: 4,
+    quote: "As a fellow graduate, I've seen Somtochukwu tackle complex software engineering projects with determination and creativity. His ability to balance network administration with full-stack development demonstrates his versatility and commitment to excellence.",
+    author: 'Academic Colleague',
+    role: 'Software Engineer',
+    company: 'Babcock University Alumni',
+    initials: 'AC',
   },
 ];
 
@@ -47,18 +55,20 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-8 sm:py-12 md:py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4">What People Say</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Feedback from colleagues and clients I've had the pleasure of working with.
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-2 sm:mb-3 md:mb-4 px-2">
+            What People Say
+          </h2>
+          <p className="text-muted-foreground text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-3">
+            Feedback from colleagues and organizations I&apos;ve had the pleasure of working with.
           </p>
         </motion.div>
 
@@ -68,9 +78,9 @@ export default function Testimonials() {
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Card className="relative">
-              <CardContent className="p-8 lg:p-12">
-                <Quote className="w-10 h-10 text-primary/20 absolute top-6 left-6" />
+            <Card className="relative overflow-hidden">
+              <CardContent className="p-4 sm:p-6 md:p-8 lg:p-12">
+                <Quote className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary/20 absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6" />
                 <div className="text-center">
                   <motion.p
                     key={currentIndex}
@@ -78,25 +88,27 @@ export default function Testimonials() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
-                    className="text-lg lg:text-xl leading-relaxed mb-8 relative z-10"
+                    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed mb-4 sm:mb-6 md:mb-8 relative z-10 px-2 sm:px-4"
                   >
-                    "{testimonials[currentIndex].quote}"
+                    &quot;{testimonials[currentIndex].quote}&quot;
                   </motion.p>
                   <motion.div
                     key={`author-${currentIndex}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
-                    className="flex flex-col items-center gap-3"
+                    className="flex flex-col items-center gap-2 sm:gap-3"
                   >
-                    <Avatar className="w-14 h-14">
-                      <AvatarFallback className="bg-primary text-primary-foreground font-medium">
+                    <Avatar className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
+                      <AvatarFallback className="bg-primary text-primary-foreground font-medium text-xs sm:text-sm md:text-base">
                         {testimonials[currentIndex].initials}
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <p className="font-semibold">{testimonials[currentIndex].author}</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="font-semibold text-sm sm:text-base">
+                        {testimonials[currentIndex].author}
+                      </p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">
                         {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
                       </p>
                     </div>
@@ -106,22 +118,23 @@ export default function Testimonials() {
             </Card>
           </motion.div>
 
-          <div className="flex justify-center items-center gap-4 mt-8">
+          <div className="flex justify-center items-center gap-2 sm:gap-3 md:gap-4 mt-4 sm:mt-6 md:mt-8">
             <Button
               size="icon"
               variant="outline"
               onClick={goToPrevious}
               data-testid="button-testimonial-prev"
               aria-label="Previous testimonial"
+              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
-            <div className="flex gap-2">
+            <div className="flex gap-1.5 sm:gap-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
+                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
                     index === currentIndex ? 'bg-primary' : 'bg-muted'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
@@ -134,8 +147,9 @@ export default function Testimonials() {
               onClick={goToNext}
               data-testid="button-testimonial-next"
               aria-label="Next testimonial"
+              className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>

@@ -35,68 +35,68 @@ interface Project {
 const projects: Project[] = [
   {
     id: 'proj-1',
-    title: 'Realtime Collaboration App',
-    slug: 'realtime-collab',
-    summary: 'A collaborative editor with Operational Transform for real-time document editing.',
+    title: 'LiamSphereProPreserve',
+    slug: 'property-management',
+    summary: 'Full-stack property management platform streamlining record tracking with user-friendly features.',
     coverImage: collabImage,
-    tech: ['React', 'WebSocket', 'Node.js', 'PostgreSQL'],
+    tech: ['HTML', 'CSS', 'JavaScript'],
     type: 'full-stack',
-    liveUrl: 'https://collab.example.com',
-    repoUrl: 'https://github.com/alex/collab',
+    liveUrl: 'https://github.com/800Brains/LiamssphereProreserve',
+    repoUrl: 'https://github.com/800Brains/LiamssphereProreserve',
     metrics: [
-      { label: 'Active Users', value: '10k+' },
-      { label: 'Avg Latency', value: '120ms' },
-      { label: 'Uptime', value: '99.9%' },
+      { label: 'Tech Stack', value: 'Web' },
+      { label: 'Status', value: 'Live' },
+      { label: 'Year', value: '2025' },
     ],
     caseStudy: {
-      problem: 'Teams needed a way to collaboratively edit documents in real-time without conflicts or data loss.',
-      approach: 'Implemented Operational Transform algorithm with WebSocket connections for instant synchronization.',
-      solution: 'Built a scalable real-time editor supporting 100+ concurrent users per document with conflict resolution.',
-      lessons: 'Learned the importance of optimistic UI updates and proper error handling in distributed systems.',
+      problem: 'Property managers needed an efficient system to track and manage property records without complex software.',
+      approach: 'Built a clean, intuitive web interface using core web technologies for maximum accessibility and performance.',
+      solution: 'Delivered a streamlined property management platform that enhanced accessibility and usability for all users.',
+      lessons: 'Sometimes simple, well-executed solutions are more effective than over-engineered complex systems.',
     },
   },
   {
     id: 'proj-2',
-    title: 'E-Commerce Platform',
-    slug: 'ecommerce',
-    summary: 'Modern e-commerce solution with cart, checkout, and payment integration.',
+    title: 'Network Infrastructure Setup',
+    slug: 'network-setup',
+    summary: 'Configured and maintained secure networks supporting 100+ daily operations at Somick Rhema.',
     coverImage: ecommerceImage,
-    tech: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
-    type: 'full-stack',
-    liveUrl: 'https://shop.example.com',
-    repoUrl: 'https://github.com/alex/shop',
+    tech: ['TCP/IP', 'DNS/DHCP', 'VPN', 'Firewalls'],
+    type: 'backend',
+    liveUrl: '#',
+    repoUrl: 'https://github.com/800Brains',
     metrics: [
-      { label: 'Conversion Rate', value: '+35%' },
-      { label: 'Page Load', value: '1.2s' },
-      { label: 'Monthly GMV', value: '$500k' },
+      { label: 'Systems', value: '100+' },
+      { label: 'Uptime', value: '99%+' },
+      { label: 'Duration', value: '2+ yrs' },
     ],
     caseStudy: {
-      problem: 'Client needed a fast, modern e-commerce site to replace their legacy platform.',
-      approach: 'Used Next.js for SSR/SSG, Stripe for payments, and optimized images for performance.',
-      solution: 'Delivered a performant e-commerce platform with 99+ Lighthouse scores across all metrics.',
-      lessons: 'Performance optimization directly impacts conversion rates and user satisfaction.',
+      problem: 'Organization needed reliable network infrastructure to support daily operations without interruption.',
+      approach: 'Implemented robust networking protocols with security best practices and proactive monitoring.',
+      solution: 'Reduced network downtime significantly while maintaining security protocols for 100+ daily operations.',
+      lessons: 'Proactive maintenance and proper security configuration prevent most network issues before they occur.',
     },
   },
   {
     id: 'proj-3',
-    title: 'Analytics Dashboard',
-    slug: 'analytics',
-    summary: 'Real-time analytics dashboard with customizable widgets and data visualization.',
+    title: 'Java Mobile Applications',
+    slug: 'mobile-apps',
+    summary: 'Designed secure Java-based mobile applications during NIIT internship with version control.',
     coverImage: analyticsImage,
-    tech: ['React', 'D3.js', 'GraphQL', 'Redis'],
-    type: 'frontend',
-    liveUrl: 'https://analytics.example.com',
-    repoUrl: 'https://github.com/alex/analytics',
+    tech: ['Java', 'Android', 'Git', 'Security'],
+    type: 'full-stack',
+    liveUrl: '#',
+    repoUrl: 'https://github.com/800Brains',
     metrics: [
-      { label: 'Data Points', value: '1M+/day' },
-      { label: 'Widgets', value: '20+' },
-      { label: 'Export Formats', value: '5' },
+      { label: 'Platform', value: 'Android' },
+      { label: 'Security', value: 'High' },
+      { label: 'Duration', value: '6 months' },
     ],
     caseStudy: {
-      problem: 'Marketing team needed real-time visibility into campaign performance across channels.',
-      approach: 'Created modular widget system with D3.js charts and WebSocket for live updates.',
-      solution: 'Built a drag-and-drop dashboard with 20+ customizable widgets and real-time data.',
-      lessons: 'Component composition and lazy loading are crucial for complex data visualizations.',
+      problem: 'Internship required developing mobile applications with secure coding practices and proper version control.',
+      approach: 'Applied Java best practices, implemented security measures, and utilized Git for collaborative development.',
+      solution: 'Successfully delivered mobile applications with secure architecture and proper code management.',
+      lessons: 'Version control and secure coding practices are essential foundations for professional software development.',
     },
   },
 ];
@@ -106,7 +106,6 @@ const filters: { value: ProjectType; label: string }[] = [
   { value: 'full-stack', label: 'Full-Stack' },
   { value: 'frontend', label: 'Frontend' },
   { value: 'backend', label: 'Backend' },
-  { value: 'open-source', label: 'Open Source' },
 ];
 
 export default function Projects() {
@@ -120,22 +119,24 @@ export default function Projects() {
     : projects.filter((p) => p.type === activeFilter);
 
   return (
-    <section id="projects" className="py-16 lg:py-24 bg-card/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-8 sm:py-12 md:py-16 lg:py-24 bg-card/50">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4">Featured Projects</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A selection of projects I've worked on, showcasing my skills and experience.
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-2 sm:mb-3 md:mb-4 px-2">
+            Featured Projects
+          </h2>
+          <p className="text-muted-foreground text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-3">
+            A selection of projects showcasing my skills in networking, development, and security.
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 md:mb-10 px-2">
           {filters.map((filter) => (
             <Button
               key={filter.value}
@@ -143,6 +144,7 @@ export default function Projects() {
               size="sm"
               onClick={() => setActiveFilter(filter.value)}
               data-testid={`button-filter-${filter.value}`}
+              className="text-xs sm:text-sm h-7 sm:h-8 px-2 sm:px-3"
             >
               {filter.label}
             </Button>
@@ -156,7 +158,7 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -176,23 +178,27 @@ export default function Projects() {
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                      <span className="text-white font-medium flex items-center gap-1">
-                        View Case Study <ChevronRight className="w-4 h-4" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 sm:p-4">
+                      <span className="text-white text-xs sm:text-sm font-medium flex items-center gap-1">
+                        View Details <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
                       </span>
                     </div>
                   </div>
-                  <CardContent className="p-5">
-                    <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{project.summary}</p>
-                    <div className="flex flex-wrap gap-1.5">
+                  <CardContent className="p-3 sm:p-4 md:p-5">
+                    <h3 className="font-semibold text-sm sm:text-base md:text-lg mb-1.5 sm:mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2">
+                      {project.summary}
+                    </p>
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5">
                       {project.tech.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
+                        <Badge key={tech} variant="secondary" className="text-xs px-1.5 py-0.5">
                           {tech}
                         </Badge>
                       ))}
                       {project.tech.length > 3 && (
-                        <Badge variant="secondary" className="text-xs">
+                        <Badge variant="secondary" className="text-xs px-1.5 py-0.5">
                           +{project.tech.length - 3}
                         </Badge>
                       )}
@@ -205,77 +211,99 @@ export default function Projects() {
         </AnimatePresence>
 
         <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-3xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
             {selectedProject && (
               <>
                 <DialogHeader>
-                  <DialogTitle className="text-2xl">{selectedProject.title}</DialogTitle>
+                  <DialogTitle className="text-lg sm:text-xl md:text-2xl pr-8">
+                    {selectedProject.title}
+                  </DialogTitle>
                 </DialogHeader>
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-5 md:space-y-6">
                   <img
                     src={selectedProject.coverImage}
                     alt={selectedProject.title}
                     className="w-full aspect-video object-cover rounded-lg"
                   />
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {selectedProject.tech.map((tech) => (
-                      <Badge key={tech} variant="secondary">
+                      <Badge key={tech} variant="secondary" className="text-xs">
                         {tech}
                       </Badge>
                     ))}
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
                     {selectedProject.metrics.map((metric) => (
-                      <div key={metric.label} className="text-center p-4 bg-muted rounded-lg">
-                        <p className="text-2xl font-bold text-primary">{metric.value}</p>
-                        <p className="text-sm text-muted-foreground">{metric.label}</p>
+                      <div key={metric.label} className="text-center p-2 sm:p-3 md:p-4 bg-muted rounded-lg">
+                        <p className="text-base sm:text-lg md:text-2xl font-bold text-primary">
+                          {metric.value}
+                        </p>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 sm:mt-1">
+                          {metric.label}
+                        </p>
                       </div>
                     ))}
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     <div>
-                      <h4 className="font-semibold mb-2 flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-destructive/20 text-destructive flex items-center justify-center text-sm">1</span>
+                      <h4 className="font-semibold text-sm sm:text-base mb-1.5 sm:mb-2 flex items-center gap-2">
+                        <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-destructive/20 text-destructive flex items-center justify-center text-xs sm:text-sm flex-shrink-0">
+                          1
+                        </span>
                         Problem
                       </h4>
-                      <p className="text-muted-foreground pl-8">{selectedProject.caseStudy.problem}</p>
+                      <p className="text-muted-foreground text-xs sm:text-sm pl-7 sm:pl-8">
+                        {selectedProject.caseStudy.problem}
+                      </p>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2 flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-chart-4/20 text-chart-4 flex items-center justify-center text-sm">2</span>
+                      <h4 className="font-semibold text-sm sm:text-base mb-1.5 sm:mb-2 flex items-center gap-2">
+                        <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-chart-4/20 text-chart-4 flex items-center justify-center text-xs sm:text-sm flex-shrink-0">
+                          2
+                        </span>
                         Approach
                       </h4>
-                      <p className="text-muted-foreground pl-8">{selectedProject.caseStudy.approach}</p>
+                      <p className="text-muted-foreground text-xs sm:text-sm pl-7 sm:pl-8">
+                        {selectedProject.caseStudy.approach}
+                      </p>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2 flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-chart-2/20 text-chart-2 flex items-center justify-center text-sm">3</span>
+                      <h4 className="font-semibold text-sm sm:text-base mb-1.5 sm:mb-2 flex items-center gap-2">
+                        <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-chart-2/20 text-chart-2 flex items-center justify-center text-xs sm:text-sm flex-shrink-0">
+                          3
+                        </span>
                         Solution
                       </h4>
-                      <p className="text-muted-foreground pl-8">{selectedProject.caseStudy.solution}</p>
+                      <p className="text-muted-foreground text-xs sm:text-sm pl-7 sm:pl-8">
+                        {selectedProject.caseStudy.solution}
+                      </p>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2 flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">4</span>
+                      <h4 className="font-semibold text-sm sm:text-base mb-1.5 sm:mb-2 flex items-center gap-2">
+                        <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs sm:text-sm flex-shrink-0">
+                          4
+                        </span>
                         Lessons Learned
                       </h4>
-                      <p className="text-muted-foreground pl-8">{selectedProject.caseStudy.lessons}</p>
+                      <p className="text-muted-foreground text-xs sm:text-sm pl-7 sm:pl-8">
+                        {selectedProject.caseStudy.lessons}
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex gap-3 pt-4">
-                    <Button asChild className="flex-1">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2 sm:pt-4">
+                    <Button asChild className="flex-1 text-xs sm:text-sm h-9 sm:h-10">
                       <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                         View Live Demo
                       </a>
                     </Button>
-                    <Button variant="outline" asChild className="flex-1">
+                    <Button variant="outline" asChild className="flex-1 text-xs sm:text-sm h-9 sm:h-10">
                       <a href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
+                        <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                         View Repository
                       </a>
                     </Button>
